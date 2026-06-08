@@ -1,62 +1,35 @@
-import { supabase } from '../supabase'
+// Auth API — placeholder for future Clerk integration
+//
+// The current auth pages (Login, Register, ForgotPassword, ResetPassword)
+// are UI-only forms. When migrating auth to Clerk, replace these with
+// Clerk React components (<SignIn />, <SignUp />, useAuth() hook, etc.)
+//
+// See MIGRATION-SUPABASE-TO-NEON.md Phase 2 for implementation guide.
 
-export async function signUp(email: string, password: string, fullName: string, companyName?: string) {
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: {
-        full_name: fullName,
-        company_name: companyName || '',
-      },
-    },
-  })
-
-  if (error) throw error
-  return data
+export async function signUp(_email: string, _password: string, _fullName: string, _companyName?: string) {
+  throw new Error('Auth not yet migrated. See MIGRATION-SUPABASE-TO-NEON.md')
 }
 
-export async function signIn(email: string, password: string) {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  })
-
-  if (error) throw error
-  return data
+export async function signIn(_email: string, _password: string) {
+  throw new Error('Auth not yet migrated. See MIGRATION-SUPABASE-TO-NEON.md')
 }
 
 export async function signOut() {
-  const { error } = await supabase.auth.signOut()
-  if (error) throw error
+  throw new Error('Auth not yet migrated. See MIGRATION-SUPABASE-TO-NEON.md')
 }
 
-export async function resetPassword(email: string) {
-  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${window.location.origin}/reset-password`,
-  })
-
-  if (error) throw error
-  return data
+export async function resetPassword(_email: string) {
+  throw new Error('Auth not yet migrated. See MIGRATION-SUPABASE-TO-NEON.md')
 }
 
-export async function updatePassword(newPassword: string) {
-  const { data, error } = await supabase.auth.updateUser({
-    password: newPassword,
-  })
-
-  if (error) throw error
-  return data
+export async function updatePassword(_newPassword: string) {
+  throw new Error('Auth not yet migrated. See MIGRATION-SUPABASE-TO-NEON.md')
 }
 
 export async function getCurrentUser() {
-  const { data, error } = await supabase.auth.getUser()
-  if (error) throw error
-  return data.user
+  return null
 }
 
 export async function getSession() {
-  const { data, error } = await supabase.auth.getSession()
-  if (error) throw error
-  return data.session
+  return null
 }

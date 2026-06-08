@@ -1,70 +1,34 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle2, FileText, Repeat, Zap } from 'lucide-react'
 import SEO from '@/components/SEO'
 import ScrollReveal from '@/components/ScrollReveal'
+import { getServices } from '@/lib/api/services-api'
+import type { Service } from '@/lib/types'
 
-const brandServices = [
-  {
-    title: 'Brand Audit & Health Assessment',
-    description: 'Comprehensive evaluation of brand equity, positioning, and competitive landscape. We diagnose before we prescribe.',
-  },
-  {
-    title: 'Brand Positioning & Messaging',
-    description: 'Crafting distinctive market positions and messaging architectures that differentiate and resonate with target audiences.',
-  },
-  {
-    title: 'Visual Identity & Brand Design',
-    description: 'Logo systems, brand guidelines, packaging design, and complete visual ecosystems that communicate value instantly.',
-  },
-  {
-    title: 'Brand Architecture & Portfolio',
-    description: 'Structuring multi-brand portfolios for clarity, synergy, and maximum market coverage without cannibalization.',
-  },
-  {
-    title: 'Employer Brand Strategy',
-    description: 'Building internal brand culture that attracts, retains, and motivates top talent in competitive markets.',
-  },
+const fallbackBrandServices = [
+  { title: 'Brand Audit & Health Assessment', description: 'Comprehensive evaluation of brand equity, positioning, and competitive landscape. We diagnose before we prescribe.' },
+  { title: 'Brand Positioning & Messaging', description: 'Crafting distinctive market positions and messaging architectures that differentiate and resonate with target audiences.' },
+  { title: 'Visual Identity & Brand Design', description: 'Logo systems, brand guidelines, packaging design, and complete visual ecosystems that communicate value instantly.' },
+  { title: 'Brand Architecture & Portfolio', description: 'Structuring multi-brand portfolios for clarity, synergy, and maximum market coverage without cannibalization.' },
+  { title: 'Employer Brand Strategy', description: 'Building internal brand culture that attracts, retains, and motivates top talent in competitive markets.' },
 ]
 
-const retailServices = [
-  {
-    title: 'Merchandising Strategy & Visual Execution',
-    description: 'Planogram development, in-store visual strategy, product placement, and shelf optimisation for maximum conversion.',
-  },
-  {
-    title: 'Sales Activation & Promotions',
-    description: 'Promotional mechanics design, in-store activation planning, and trade marketing strategy for retail and pharmacy channels.',
-  },
-  {
-    title: 'BTL Advertising & Experiential',
-    description: 'Experiential marketing, POS/POP material design, brand ambassador management, and roadshows across Lagos and key markets.',
-  },
+const fallbackRetailServices = [
+  { title: 'Merchandising Strategy & Visual Execution', description: 'Planogram development, in-store visual strategy, product placement, and shelf optimisation for maximum conversion.' },
+  { title: 'Sales Activation & Promotions', description: 'Promotional mechanics design, in-store activation planning, and trade marketing strategy for retail and pharmacy channels.' },
+  { title: 'BTL Advertising & Experiential', description: 'Experiential marketing, POS/POP material design, brand ambassador management, and roadshows across Lagos and key markets.' },
 ]
 
-const digitalServices = [
-  {
-    title: 'Social Media Strategy & Management',
-    description: 'Platform strategy, content calendar development, community management, and influencer campaign management across all major platforms.',
-  },
-  {
-    title: 'SEO, SEM & Performance Marketing',
-    description: 'Search engine optimisation, Google Ads management, email/SMS marketing, and conversion rate optimisation for e-commerce.',
-  },
-  {
-    title: 'AI-Powered Marketing & Content Innovation',
-    description: 'Generative AI for content creation, AI-assisted market research, marketing automation, and data analytics dashboards.',
-  },
+const fallbackDigitalServices = [
+  { title: 'Social Media Strategy & Management', description: 'Platform strategy, content calendar development, community management, and influencer campaign management across all major platforms.' },
+  { title: 'SEO, SEM & Performance Marketing', description: 'Search engine optimisation, Google Ads management, email/SMS marketing, and conversion rate optimisation for e-commerce.' },
+  { title: 'AI-Powered Marketing & Content Innovation', description: 'Generative AI for content creation, AI-assisted market research, marketing automation, and data analytics dashboards.' },
 ]
 
-const eventServices = [
-  {
-    title: 'Event Marketing & Brand Activations',
-    description: 'End-to-end event production for brand launches, trade events, consumer activations, and large-scale experiential campaigns.',
-  },
-  {
-    title: 'Project & Campaign Management',
-    description: 'Full campaign project management from brief to post-mortem, agency coordination, budget tracking, and cross-departmental delivery.',
-  },
+const fallbackEventServices = [
+  { title: 'Event Marketing & Brand Activations', description: 'End-to-end event production for brand launches, trade events, consumer activations, and large-scale experiential campaigns.' },
+  { title: 'Project & Campaign Management', description: 'Full campaign project management from brief to post-mortem, agency coordination, budget tracking, and cross-departmental delivery.' },
 ]
 
 const engagementModels = [
@@ -95,6 +59,30 @@ const engagementModels = [
 ]
 
 export default function Services() {
+  const [apiServices, setApiServices] = useState<Service[]>([])
+
+  useEffect(() => {
+    getServices()
+      .then((services) => setApiServices(services))
+      .catch(() => setApiServices([]))
+  }, [])
+
+  const brandServices = apiServices.filter((s) => s.category === 'brand-strategy').length > 0
+    ? apiServices.filter((s) => s.category === 'brand-strategy').map((s) => ({ title: s.title, description: s.description || '' }))
+    : fallbackBrandServices
+
+  const retailServices = apiServices.filter((s) => s.category === 'retail-marketing').length > 0
+    ? apiServices.filter((s) => s.category === 'retail-marketing').map((s) => ({ title: s.title, description: s.description || '' }))
+    : fallbackRetailServices
+
+  const digitalServices = apiServices.filter((s) => s.category === 'digital-marketing').length > 0
+    ? apiServices.filter((s) => s.category === 'digital-marketing').map((s) => ({ title: s.title, description: s.description || '' }))
+    : fallbackDigitalServices
+
+  const eventServices = apiServices.filter((s) => s.category === 'events').length > 0
+    ? apiServices.filter((s) => s.category === 'events').map((s) => ({ title: s.title, description: s.description || '' }))
+    : fallbackEventServices
+
   return (
     <>
       <SEO

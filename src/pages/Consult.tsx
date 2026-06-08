@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowLeft, CheckCircle2, Send, Check } from 'lucide-react'
 import SEO from '@/components/SEO'
 import ScrollReveal from '@/components/ScrollReveal'
+import { submitConsultation } from '@/lib/api/consultations-api'
 
 const serviceOptions = [
   { id: 'brand-audit', label: 'Brand Audit & Health Assessment', category: 'Brand Strategy' },
@@ -50,6 +51,8 @@ export default function Consult() {
     projectDetails: '',
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const toggleService = (id: string) => {
     setSelectedServices((prev) =>
@@ -64,8 +67,26 @@ export default function Consult() {
     return true
   }
 
-  const handleSubmit = () => {
-    setIsSubmitted(true)
+  const handleSubmit = async () => {
+    setIsSubmitting(true)
+    setSubmitError('')
+    try {
+      await submitConsultation({
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        company_name: formData.companyName,
+        selected_services: selectedServices,
+        budget_range: budget,
+        timeline: timeline,
+        project_details: formData.projectDetails,
+      })
+      setIsSubmitted(true)
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : 'Failed to submit. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const resetForm = () => {
@@ -347,6 +368,12 @@ export default function Consult() {
             </ScrollReveal>
           )}
 
+          {submitError && (
+            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl mb-6">
+              <p className="text-red-400 text-sm">{submitError}</p>
+            </div>
+          )}
+
           {/* Navigation */}
           <div className="flex items-center justify-between pt-6 border-t border-loakim-border">
             {step > 1 ? (
@@ -373,11 +400,11 @@ export default function Consult() {
             ) : (
               <button
                 onClick={handleSubmit}
-                disabled={!canProceed()}
+                disabled={!canProceed() || isSubmitting}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-gold text-loakim-black font-semibold rounded-lg hover:bg-loakim-goldlight transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
               >
                 <Send size={16} />
-                Submit Request
+                {isSubmitting ? 'Submitting...' : 'Submit Request'}
               </button>
             )}
           </div>

@@ -1,7 +1,10 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingUp, ShoppingBag, Globe, Calendar } from 'lucide-react'
 import SEO from '@/components/SEO'
 import ScrollReveal from '@/components/ScrollReveal'
+import { getFeaturedCaseStudies, getSiteContent } from '@/lib/api/services-api'
+import type { CaseStudy } from '@/lib/types'
 
 const heroServices = [
   { icon: TrendingUp, label: 'Brand Strategy', href: '/services' },
@@ -10,7 +13,7 @@ const heroServices = [
   { icon: Calendar, label: 'Event Management', href: '/services' },
 ]
 
-const impactStats = [
+const fallbackStats = [
   { value: '₦126M', label: 'Revenue Generated H1 2024', sector: 'Healthcare / Retail' },
   { value: '+42%', label: 'In-Store Conversion Uplift', sector: 'FMCG' },
   { value: '3.2x', label: 'ROAS on Digital Campaigns', sector: 'E-Commerce' },
@@ -74,6 +77,34 @@ const servicePillars = [
 ]
 
 export default function Home() {
+  const [featuredCases, setFeaturedCases] = useState<CaseStudy[]>([])
+  const [heroTitle, setHeroTitle] = useState("We don't just build awareness — we build sales.")
+  const [heroSubtitle, setHeroSubtitle] = useState('Every strategy, campaign, and activation we deliver is anchored in commercial outcomes.')
+
+  useEffect(() => {
+    getFeaturedCaseStudies()
+      .then((cases) => setFeaturedCases(cases))
+      .catch(() => setFeaturedCases([]))
+
+    getSiteContent('hero')
+      .then((content) => {
+        if (content?.content) {
+          const c = content.content as Record<string, string>
+          if (c.title) setHeroTitle(c.title)
+          if (c.subtitle) setHeroSubtitle(c.subtitle)
+        }
+      })
+      .catch(() => {})
+  }, [])
+
+  const impactStats = featuredCases.length > 0
+    ? featuredCases.map((c) => ({
+        value: c.metric_value,
+        label: c.metric_label,
+        sector: c.sector,
+      }))
+    : fallbackStats
+
   return (
     <>
       <SEO
@@ -96,13 +127,13 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h1 className="heading-xl max-w-4xl mx-auto mb-8">
-              We don't just build awareness —{' '}
-              <span className="text-gradient-gold">we build sales.</span>
+              {heroTitle.split(' — ')[0]}{' '}
+              <span className="text-gradient-gold">{heroTitle.includes(' — ') ? heroTitle.split(' — ')[1] : ''}</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="body-lg max-w-2xl mx-auto mb-12">
-              Every strategy, campaign, and activation we deliver is anchored in commercial outcomes. Integrated precision. Measurable results.
+              {heroSubtitle}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>

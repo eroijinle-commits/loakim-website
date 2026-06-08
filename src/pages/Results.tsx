@@ -1,48 +1,39 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingUp, BarChart3, ShoppingCart, Users } from 'lucide-react'
 import SEO from '@/components/SEO'
 import ScrollReveal from '@/components/ScrollReveal'
+import { getCaseStudies } from '@/lib/api/services-api'
+import type { CaseStudy } from '@/lib/types'
 
-const caseStudies = [
-  {
-    metric: '₦126M',
-    metricLabel: 'H1 Revenue Generated',
-    client: 'Healthcare Retail Chain',
-    sector: 'Pharmaceutical / Retail',
-    description: 'Developed and executed an integrated retail marketing programme combining in-store activations, digital demand generation, and brand repositioning across 40+ retail locations.',
-    services: ['Retail Activation', 'Digital Marketing', 'Brand Strategy'],
-    icon: TrendingUp,
-  },
-  {
-    metric: '+42%',
-    metricLabel: 'In-Store Conversion',
-    client: 'FMCG Brand',
-    sector: 'Consumer Goods',
-    description: 'Designed and deployed a comprehensive trade marketing programme with retail visibility upgrades, staff training, and mystery shopping audits across modern trade channels.',
-    services: ['Trade Marketing', 'Retail Audits', 'Merchandising'],
-    icon: ShoppingCart,
-  },
-  {
-    metric: '3.2x',
-    metricLabel: 'Return on Ad Spend',
-    client: 'E-Commerce Platform',
-    sector: 'Technology / Retail',
-    description: 'Built and optimised a full-funnel digital acquisition strategy including paid social, Google Ads, SEO, and email lifecycle campaigns driving sustainable revenue growth.',
-    services: ['Paid Media', 'SEO', 'Email Marketing'],
-    icon: BarChart3,
-  },
-  {
-    metric: '+67%',
-    metricLabel: 'Social Media Growth',
-    client: 'Education Provider',
-    sector: 'EdTech',
-    description: 'Created a brand-led social media strategy with content calendars, community management, and influencer partnerships that dramatically expanded digital reach.',
-    services: ['Social Strategy', 'Content Marketing', 'Brand Management'],
-    icon: Users,
-  },
+const fallbackCaseStudies = [
+  { metric: '₦126M', metricLabel: 'H1 Revenue Generated', client: 'Healthcare Retail Chain', sector: 'Pharmaceutical / Retail', description: 'Developed and executed an integrated retail marketing programme combining in-store activations, digital demand generation, and brand repositioning across 40+ retail locations.', services: ['Retail Activation', 'Digital Marketing', 'Brand Strategy'], icon: TrendingUp },
+  { metric: '+42%', metricLabel: 'In-Store Conversion', client: 'FMCG Brand', sector: 'Consumer Goods', description: 'Designed and deployed a comprehensive trade marketing programme with retail visibility upgrades, staff training, and mystery shopping audits across modern trade channels.', services: ['Trade Marketing', 'Retail Audits', 'Merchandising'], icon: ShoppingCart },
+  { metric: '3.2x', metricLabel: 'Return on Ad Spend', client: 'E-Commerce Platform', sector: 'Technology / Retail', description: 'Built and optimised a full-funnel digital acquisition strategy including paid social, Google Ads, SEO, and email lifecycle campaigns driving sustainable revenue growth.', services: ['Paid Media', 'SEO', 'Email Marketing'], icon: BarChart3 },
+  { metric: '+67%', metricLabel: 'Social Media Growth', client: 'Education Provider', sector: 'EdTech', description: 'Created a brand-led social media strategy with content calendars, community management, and influencer partnerships that dramatically expanded digital reach.', services: ['Social Strategy', 'Content Marketing', 'Brand Management'], icon: Users },
 ]
 
 export default function Results() {
+  const [apiCases, setApiCases] = useState<CaseStudy[]>([])
+
+  useEffect(() => {
+    getCaseStudies()
+      .then((cases) => setApiCases(cases))
+      .catch(() => setApiCases([]))
+  }, [])
+
+  const caseStudies = apiCases.length > 0
+    ? apiCases.map((c) => ({
+        metric: c.metric_value,
+        metricLabel: c.metric_label,
+        client: c.client_name,
+        sector: c.sector,
+        description: c.description || '',
+        services: c.services_used,
+        icon: [TrendingUp, ShoppingCart, BarChart3, Users][Math.floor(Math.random() * 4)],
+      }))
+    : fallbackCaseStudies
+
   return (
     <>
       <SEO
