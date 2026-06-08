@@ -1,0 +1,9 @@
+name = "loakim-website"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "loakim-website"
+
+# Cloudflare Pages uses this for build settings
+# Build command: pnpm run build
+# Build output directory: dist
