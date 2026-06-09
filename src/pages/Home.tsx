@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingUp, ShoppingBag, Globe, Calendar } from 'lucide-react'
 import SEO from '@/components/SEO'
 import ScrollReveal from '@/components/ScrollReveal'
+import MonochromeDivider from '@/components/MonochromeDivider'
 import { getFeaturedCaseStudies, getSiteContent } from '@/lib/api/services-api'
 import type { CaseStudy } from '@/lib/types'
 
@@ -120,10 +121,13 @@ export default function Home() {
           <div className="absolute top-20 left-10 w-72 h-72 bg-loakim-lime/20 rounded-full blur-[120px]" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-loakim-lime/10 rounded-full blur-[150px]" />
         </div>
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number">01</span>
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
           <ScrollReveal>
-            <p className="section-label mb-6">Integrated Services</p>
+            <p className="section-label mb-6">IS</p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h1 className="heading-xl max-w-4xl mx-auto mb-8 text-white">
@@ -156,7 +160,7 @@ export default function Home() {
           <ScrollReveal delay={0.4}>
             <Link
               to="/consult"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limedark transition-colors"
             >
               Begin Consultation
               <ArrowRight size={18} />
@@ -165,13 +169,18 @@ export default function Home() {
         </div>
       </section>
 
+      <MonochromeDivider imageUrl="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop" />
+
       {/* Service Architecture Section — White */}
       <section className="py-24 lg:py-32 relative bg-white">
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number-dark">02</span>
+        </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <div className="lg:col-span-4 lg:sticky lg:top-32">
               <ScrollReveal>
-                <p className="section-label-dark mb-4">02</p>
+                <p className="section-label-dark mb-4">SA</p>
                 <h2 className="heading-lg mb-6 text-gray-900">
                   Service<br />Architecture
                 </h2>
@@ -180,7 +189,7 @@ export default function Home() {
                 </p>
                 <Link
                   to="/services"
-                  className="inline-flex items-center gap-2 text-loakim-lime font-medium text-sm hover:text-loakim-limehover transition-colors group"
+                  className="inline-flex items-center gap-2 text-loakim-lime font-medium text-sm hover:text-loakim-limedark transition-colors group"
                 >
                   Explore Full Service Matrix
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -192,7 +201,7 @@ export default function Home() {
                 <ScrollReveal key={pillar.number} delay={index * 0.1}>
                   <div className="group p-8 bg-white border border-gray-200 rounded-2xl hover:border-loakim-lime/20 shadow-sm hover:shadow-md transition-all duration-300">
                     <div className="flex items-start gap-6">
-                      <span className="text-4xl font-bold text-loakim-lime/30 shrink-0">{pillar.number}</span>
+                      <span className="stroke-number-md-dark shrink-0">{pillar.number}</span>
                       <div className="flex-1">
                         <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-loakim-lime transition-colors">
                           {pillar.title}
@@ -220,12 +229,17 @@ export default function Home() {
         </div>
       </section>
 
+      <MonochromeDivider imageUrl="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1920&auto=format&fit=crop" />
+
       {/* Impact Intelligence Section — Dark */}
       <section className="py-24 lg:py-32 bg-loakim-dark relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-loakim-lime/5 rounded-full blur-[200px]" />
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number">03</span>
+        </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <ScrollReveal>
-            <p className="section-label mb-4">03</p>
+            <p className="section-label mb-4">II</p>
             <h2 className="heading-lg mb-4 text-white">
               Results That<br />Move Markets.
             </h2>
@@ -252,7 +266,7 @@ export default function Home() {
             <div className="mt-12 text-center">
               <Link
                 to="/results"
-                className="inline-flex items-center gap-2 text-loakim-lime font-medium text-sm hover:text-loakim-limehover transition-colors group"
+                className="inline-flex items-center gap-2 text-loakim-lime font-medium text-sm hover:text-loakim-limedark transition-colors group"
               >
                 View Case Studies
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -262,11 +276,16 @@ export default function Home() {
         </div>
       </section>
 
+      <MonochromeDivider imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop" />
+
       {/* Why Loakim Section — White */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="py-24 lg:py-32 bg-white relative">
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number-dark">04</span>
+        </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <p className="section-label-dark mb-4">04</p>
+            <p className="section-label-dark mb-4">WL</p>
             <h2 className="heading-lg mb-16 text-gray-900">
               Not Another<br />Agency.
             </h2>
@@ -275,8 +294,8 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyLoakim.map((item, index) => (
               <ScrollReveal key={item.number} delay={index * 0.1}>
-                <div className="p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-md transition-all duration-300 h-full shadow-sm">
-                  <span className="text-5xl font-bold text-loakim-lime/20 block mb-4">{item.number}</span>
+                <div className="relative p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-md transition-all duration-300 h-full shadow-sm overflow-hidden">
+                  <span className="absolute top-6 right-6 stroke-number-sm-dark">{item.number}</span>
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">{item.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
                 </div>
@@ -286,14 +305,19 @@ export default function Home() {
         </div>
       </section>
 
+      <MonochromeDivider imageUrl="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop" />
+
       {/* Consult CTA Section — Dark */}
       <section className="py-24 lg:py-32 bg-loakim-dark relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-loakim-lime/10 rounded-full blur-[200px]" />
         </div>
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number">05</span>
+        </div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <ScrollReveal>
-            <p className="section-label mb-4">The Consult Portal</p>
+            <p className="section-label mb-4">CP</p>
             <h2 className="heading-lg mb-6 text-white">
               Ready to Build<br />Something Real?
             </h2>
@@ -302,7 +326,7 @@ export default function Home() {
             </p>
             <Link
               to="/consult"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limedark transition-colors"
             >
               Begin Consultation
               <ArrowRight size={18} />

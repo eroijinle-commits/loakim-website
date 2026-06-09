@@ -102,8 +102,11 @@ export default function Consult() {
     return (
       <>
         <SEO title="Consultation Submitted" description="Your consultation request has been received." />
-        <section className="pt-32 pb-24 min-h-[70vh] flex items-center bg-white">
-          <div className="max-w-xl mx-auto px-6 lg:px-8 text-center">
+        <section className="pt-32 pb-24 min-h-[70vh] flex items-center bg-white relative">
+          <div className="absolute top-10 right-10 md:right-20">
+            <span className="section-number-dark">01</span>
+          </div>
+          <div className="max-w-xl mx-auto px-6 lg:px-8 text-center relative z-10">
             <ScrollReveal>
               <div className="w-20 h-20 bg-loakim-lime/10 rounded-full flex items-center justify-center mx-auto mb-8">
                 <CheckCircle2 size={40} className="text-loakim-lime" />
@@ -131,7 +134,7 @@ export default function Consult() {
                 </button>
                 <Link
                   to="/"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors text-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limedark transition-colors text-sm"
                 >
                   Return Home
                   <ArrowRight size={16} />
@@ -152,10 +155,13 @@ export default function Consult() {
         keywords="brand diagnostic Nigeria, free marketing consultation Lagos, brand strategy consultation, retail marketing assessment"
       />
 
-      <section className="pt-32 pb-24 bg-white">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+      <section className="pt-32 pb-24 bg-white relative">
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number-dark">01</span>
+        </div>
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
           <ScrollReveal>
-            <p className="section-label-dark mb-4">Consult Portal</p>
+            <p className="section-label-dark mb-4">CP</p>
             <h1 className="heading-xl mb-4 text-gray-900">Begin Your Consultation</h1>
             <p className="body-md mb-12">
               Tell us about your project and we'll prepare a tailored strategic assessment. This takes about 3 minutes.
@@ -392,7 +398,7 @@ export default function Consult() {
               <button
                 onClick={() => setStep(step + 1)}
                 disabled={!canProceed()}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limedark transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
               >
                 Continue
                 <ArrowRight size={16} />
@@ -401,7 +407,7 @@ export default function Consult() {
               <button
                 onClick={handleSubmit}
                 disabled={!canProceed() || isSubmitting}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limedark transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
               >
                 <Send size={16} />
                 {isSubmitting ? 'Submitting...' : 'Submit Request'}

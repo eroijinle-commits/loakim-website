@@ -57,6 +57,26 @@
     -webkit-text-stroke: 1px #111827;
   }
 
+  .stroke-number-sm {
+    @apply text-4xl md:text-5xl font-bold leading-none text-transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .stroke-number-sm-dark {
+    @apply text-4xl md:text-5xl font-bold leading-none text-transparent;
+    -webkit-text-stroke: 1px rgba(17, 24, 39, 0.15);
+  }
+
+  .stroke-number-md {
+    @apply text-5xl md:text-6xl font-bold leading-none text-transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .stroke-number-md-dark {
+    @apply text-5xl md:text-6xl font-bold leading-none text-transparent;
+    -webkit-text-stroke: 1px rgba(17, 24, 39, 0.15);
+  }
+
   .heading-xl {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight;
   }

@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingUp, BarChart3, ShoppingCart, Users } from 'lucide-react'
 import SEO from '@/components/SEO'
 import ScrollReveal from '@/components/ScrollReveal'
+import MonochromeDivider from '@/components/MonochromeDivider'
 import { getCaseStudies } from '@/lib/api/services-api'
 import type { CaseStudy } from '@/lib/types'
 
 const fallbackCaseStudies = [
-  { metric: '₦126M', metricLabel: 'H1 Revenue Generated', client: 'Healthcare Retail Chain', sector: 'Pharmaceutical / Retail', description: 'Developed and executed an integrated retail marketing programme combining in-store activations, digital demand generation, and brand repositioning across 40+ retail locations.', services: ['Retail Activation', 'Digital Marketing', 'Brand Strategy'], icon: TrendingUp },
-  { metric: '+42%', metricLabel: 'In-Store Conversion', client: 'FMCG Brand', sector: 'Consumer Goods', description: 'Designed and deployed a comprehensive trade marketing programme with retail visibility upgrades, staff training, and mystery shopping audits across modern trade channels.', services: ['Trade Marketing', 'Retail Audits', 'Merchandising'], icon: ShoppingCart },
-  { metric: '3.2x', metricLabel: 'Return on Ad Spend', client: 'E-Commerce Platform', sector: 'Technology / Retail', description: 'Built and optimised a full-funnel digital acquisition strategy including paid social, Google Ads, SEO, and email lifecycle campaigns driving sustainable revenue growth.', services: ['Paid Media', 'SEO', 'Email Marketing'], icon: BarChart3 },
-  { metric: '+67%', metricLabel: 'Social Media Growth', client: 'Education Provider', sector: 'EdTech', description: 'Created a brand-led social media strategy with content calendars, community management, and influencer partnerships that dramatically expanded digital reach.', services: ['Social Strategy', 'Content Marketing', 'Brand Management'], icon: Users },
+  { number: '01', metric: '₦126M', metricLabel: 'H1 Revenue Generated', client: 'Healthcare Retail Chain', sector: 'Pharmaceutical / Retail', description: 'Developed and executed an integrated retail marketing programme combining in-store activations, digital demand generation, and brand repositioning across 40+ retail locations.', services: ['Retail Activation', 'Digital Marketing', 'Brand Strategy'], icon: TrendingUp },
+  { number: '02', metric: '+42%', metricLabel: 'In-Store Conversion', client: 'FMCG Brand', sector: 'Consumer Goods', description: 'Designed and deployed a comprehensive trade marketing programme with retail visibility upgrades, staff training, and mystery shopping audits across modern trade channels.', services: ['Trade Marketing', 'Retail Audits', 'Merchandising'], icon: ShoppingCart },
+  { number: '03', metric: '3.2x', metricLabel: 'Return on Ad Spend', client: 'E-Commerce Platform', sector: 'Technology / Retail', description: 'Built and optimised a full-funnel digital acquisition strategy including paid social, Google Ads, SEO, and email lifecycle campaigns driving sustainable revenue growth.', services: ['Paid Media', 'SEO', 'Email Marketing'], icon: BarChart3 },
+  { number: '04', metric: '+67%', metricLabel: 'Social Media Growth', client: 'Education Provider', sector: 'EdTech', description: 'Created a brand-led social media strategy with content calendars, community management, and influencer partnerships that dramatically expanded digital reach.', services: ['Social Strategy', 'Content Marketing', 'Brand Management'], icon: Users },
 ]
 
 export default function Results() {
@@ -23,7 +24,8 @@ export default function Results() {
   }, [])
 
   const caseStudies = apiCases.length > 0
-    ? apiCases.map((c) => ({
+    ? apiCases.map((c, i) => ({
+        number: String(i + 1).padStart(2, '0'),
         metric: c.metric_value,
         metricLabel: c.metric_label,
         client: c.client_name,
@@ -42,26 +44,39 @@ export default function Results() {
         keywords="marketing results Nigeria, brand growth case study, retail marketing ROI, FMCG conversion uplift, e-commerce ROAS, social media growth"
       />
 
-      {/* Hero — White */}
-      <section className="pt-32 pb-16 relative bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* Hero — Dark */}
+      <section className="relative pt-32 pb-16 min-h-[60vh] flex items-center overflow-hidden bg-loakim-black">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-loakim-lime/5 rounded-full blur-[200px]" />
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number">01</span>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <ScrollReveal>
-            <p className="section-label-dark mb-4">IF</p>
-            <h1 className="heading-xl mb-6 text-gray-900">Intelligence Feed</h1>
-            <p className="body-lg max-w-3xl">
+            <p className="section-label mb-4">IF</p>
+            <h1 className="heading-xl mb-6 text-white">Intelligence Feed</h1>
+            <p className="body-lg-dark max-w-3xl">
               Measured Impact. Evidence-based results from our engagements. Every figure is verified, every outcome is measurable.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
+      <MonochromeDivider imageUrl="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop" />
+
       {/* Case Studies Grid — White */}
-      <section className="py-16 pb-24 bg-white">
+      <section className="py-16 pb-24 bg-white relative">
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number-dark">02</span>
+        </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <ScrollReveal>
+            <p className="section-label-dark mb-8">CS</p>
+          </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-8">
             {caseStudies.map((study, index) => (
               <ScrollReveal key={study.client} delay={index * 0.15}>
-                <div className="group p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl hover:border-loakim-lime/20 shadow-sm hover:shadow-md transition-all duration-300 h-full">
+                <div className="group relative p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl hover:border-loakim-lime/20 shadow-sm hover:shadow-md transition-all duration-300 h-full overflow-hidden">
+                  <span className="absolute top-6 right-6 stroke-number-sm-dark">{study.number}</span>
                   <div className="flex items-start justify-between mb-8">
                     <div>
                       <span className="text-5xl lg:text-6xl font-bold text-gradient-lime block mb-2">
@@ -96,7 +111,7 @@ export default function Results() {
 
                   <Link
                     to="/consult"
-                    className="inline-flex items-center gap-2 text-loakim-lime text-sm font-medium hover:text-loakim-limehover transition-colors group/link"
+                    className="inline-flex items-center gap-2 text-loakim-lime text-sm font-medium hover:text-loakim-limedark transition-colors group/link"
                   >
                     Discuss Similar Results
                     <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
@@ -108,17 +123,24 @@ export default function Results() {
         </div>
       </section>
 
+      <MonochromeDivider imageUrl="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1920&auto=format&fit=crop" />
+
       {/* CTA Banner — Dark */}
-      <section className="py-20 bg-loakim-dark">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <section className="py-24 bg-loakim-dark relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-loakim-lime/5 rounded-full blur-[200px]" />
+        <div className="absolute top-10 right-10 md:right-20">
+          <span className="section-number">03</span>
+        </div>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <ScrollReveal>
+            <p className="section-label mb-4">CT</p>
             <h2 className="heading-md mb-6 text-white">Your Results Could Be Here Next</h2>
             <p className="body-md-dark mb-8 max-w-xl mx-auto">
               Every engagement starts with a diagnostic. Let's identify your growth trajectory and build a strategy that delivers measurable commercial impact.
             </p>
             <Link
               to="/consult"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limedark transition-colors"
             >
               Start Your Diagnostic
               <ArrowRight size={18} />
