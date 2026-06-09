@@ -9,14 +9,14 @@
 
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: #0a0a0a;
+    background-color: #0A0A0A;
     color: #ffffff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: rgba(201, 169, 110, 0.3);
+    background-color: rgba(212, 255, 0, 0.3);
     color: #ffffff;
   }
 
@@ -25,7 +25,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: #0A0A0A;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -40,12 +40,21 @@
 
 @layer components {
   .section-label {
-    @apply text-xs font-semibold tracking-[0.2em] uppercase text-loakim-gold mb-4;
+    @apply text-xs font-semibold tracking-[0.2em] uppercase text-loakim-lime mb-4;
+  }
+
+  .section-label-dark {
+    @apply text-xs font-semibold tracking-[0.2em] uppercase text-loakim-lime mb-4;
   }
 
   .section-number {
     @apply text-[6rem] md:text-[8rem] font-bold leading-none text-transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  }
+
+  .section-number-dark {
+    @apply text-[6rem] md:text-[8rem] font-bold leading-none text-transparent;
+    -webkit-text-stroke: 1px #111827;
   }
 
   .heading-xl {
@@ -61,23 +70,31 @@
   }
 
   .body-lg {
+    @apply text-lg text-gray-500 leading-relaxed;
+  }
+
+  .body-lg-dark {
     @apply text-lg text-loakim-lightgray leading-relaxed;
   }
 
   .body-md {
-    @apply text-base text-loakim-gray leading-relaxed;
+    @apply text-base text-gray-500 leading-relaxed;
+  }
+
+  .body-md-dark {
+    @apply text-base text-loakim-lightgray leading-relaxed;
   }
 
   .card-hover {
     @apply transition-all duration-300 ease-out hover:-translate-y-1;
   }
 
-  .gold-gradient {
-    background: linear-gradient(135deg, #c9a96e 0%, #d4b87a 50%, #c9a96e 100%);
+  .lime-gradient {
+    background: linear-gradient(135deg, #D4FF00 0%, #e0ff33 50%, #D4FF00 100%);
   }
 
-  .text-gradient-gold {
-    background: linear-gradient(135deg, #c9a96e 0%, #d4b87a 100%);
+  .text-gradient-lime {
+    background: linear-gradient(135deg, #D4FF00 0%, #e0ff33 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -102,36 +102,36 @@ export default function Consult() {
     return (
       <>
         <SEO title="Consultation Submitted" description="Your consultation request has been received." />
-        <section className="pt-32 pb-24 min-h-[70vh] flex items-center">
+        <section className="pt-32 pb-24 min-h-[70vh] flex items-center bg-white">
           <div className="max-w-xl mx-auto px-6 lg:px-8 text-center">
             <ScrollReveal>
-              <div className="w-20 h-20 bg-loakim-gold/10 rounded-full flex items-center justify-center mx-auto mb-8">
-                <CheckCircle2 size={40} className="text-loakim-gold" />
+              <div className="w-20 h-20 bg-loakim-lime/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                <CheckCircle2 size={40} className="text-loakim-lime" />
               </div>
-              <h1 className="heading-lg mb-4">Request Received</h1>
+              <h1 className="heading-lg mb-4 text-gray-900">Request Received</h1>
               <p className="body-md mb-8">
                 Thank you for reaching out. Our team will review your requirements and contact you within 24 hours to schedule your free Brand Diagnostic.
               </p>
-              <div className="p-6 bg-loakim-charcoal/30 border border-loakim-border rounded-xl mb-8 text-left">
-                <h3 className="text-white font-semibold text-sm mb-4">Summary</h3>
+              <div className="p-6 bg-white border border-gray-200 rounded-xl mb-8 text-left shadow-sm">
+                <h3 className="text-gray-900 font-semibold text-sm mb-4">Summary</h3>
                 <div className="space-y-2 text-sm">
-                  <p className="text-loakim-gray"><span className="text-loakim-lightgray">Services:</span> {selectedServices.length} selected</p>
-                  <p className="text-loakim-gray"><span className="text-loakim-lightgray">Budget:</span> {budget}</p>
-                  <p className="text-loakim-gray"><span className="text-loakim-lightgray">Timeline:</span> {timeline}</p>
-                  <p className="text-loakim-gray"><span className="text-loakim-lightgray">Name:</span> {formData.fullName}</p>
-                  <p className="text-loakim-gray"><span className="text-loakim-lightgray">Email:</span> {formData.email}</p>
+                  <p className="text-gray-500"><span className="text-gray-700">Services:</span> {selectedServices.length} selected</p>
+                  <p className="text-gray-500"><span className="text-gray-700">Budget:</span> {budget}</p>
+                  <p className="text-gray-500"><span className="text-gray-700">Timeline:</span> {timeline}</p>
+                  <p className="text-gray-500"><span className="text-gray-700">Name:</span> {formData.fullName}</p>
+                  <p className="text-gray-500"><span className="text-gray-700">Email:</span> {formData.email}</p>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={resetForm}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-loakim-border text-loakim-lightgray rounded-lg hover:border-loakim-gold/30 hover:text-white transition-colors text-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-200 text-gray-600 rounded-lg hover:border-loakim-lime/30 hover:text-gray-900 transition-colors text-sm"
                 >
                   Submit Another Request
                 </button>
                 <Link
                   to="/"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-loakim-gold text-loakim-black font-semibold rounded-lg hover:bg-loakim-goldlight transition-colors text-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors text-sm"
                 >
                   Return Home
                   <ArrowRight size={16} />
@@ -152,11 +152,11 @@ export default function Consult() {
         keywords="brand diagnostic Nigeria, free marketing consultation Lagos, brand strategy consultation, retail marketing assessment"
       />
 
-      <section className="pt-32 pb-24">
+      <section className="pt-32 pb-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <p className="section-label mb-4">Consult Portal</p>
-            <h1 className="heading-xl mb-4">Begin Your Consultation</h1>
+            <p className="section-label-dark mb-4">Consult Portal</p>
+            <h1 className="heading-xl mb-4 text-gray-900">Begin Your Consultation</h1>
             <p className="body-md mb-12">
               Tell us about your project and we'll prepare a tailored strategic assessment. This takes about 3 minutes.
             </p>
@@ -170,17 +170,17 @@ export default function Consult() {
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${
                       step > index + 1
-                        ? 'bg-loakim-gold text-loakim-black'
+                        ? 'bg-loakim-lime text-gray-900'
                         : step === index + 1
-                        ? 'bg-loakim-gold/20 text-loakim-gold border border-loakim-gold/30'
-                        : 'bg-loakim-charcoal text-loakim-gray border border-loakim-border'
+                        ? 'bg-loakim-lime/20 text-loakim-lime border border-loakim-lime/30'
+                        : 'bg-gray-100 text-gray-400 border border-gray-200'
                     }`}
                   >
                     {step > index + 1 ? <Check size={14} /> : index + 1}
                   </div>
                   <span
                     className={`text-xs font-medium hidden sm:block ${
-                      step >= index + 1 ? 'text-loakim-lightgray' : 'text-loakim-gray'
+                      step >= index + 1 ? 'text-gray-700' : 'text-gray-400'
                     }`}
                   >
                     {label}
@@ -188,9 +188,9 @@ export default function Consult() {
                 </div>
               ))}
             </div>
-            <div className="h-1 bg-loakim-charcoal rounded-full overflow-hidden">
+            <div className="h-1 bg-gray-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-loakim-gold transition-all duration-500"
+                className="h-full bg-loakim-lime transition-all duration-500"
                 style={{ width: `${(step / 3) * 100}%` }}
               />
             </div>
@@ -200,8 +200,8 @@ export default function Consult() {
           {step === 1 && (
             <ScrollReveal>
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-white mb-2">What do you need?</h2>
-                <p className="text-loakim-gray text-sm">Select the services relevant to your project. You can choose multiple.</p>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">What do you need?</h2>
+                <p className="text-gray-500 text-sm">Select the services relevant to your project. You can choose multiple.</p>
               </div>
               <div className="grid sm:grid-cols-2 gap-3 mb-10">
                 {serviceOptions.map((service) => (
@@ -210,23 +210,23 @@ export default function Consult() {
                     onClick={() => toggleService(service.id)}
                     className={`p-4 rounded-xl border text-left transition-all duration-300 ${
                       selectedServices.includes(service.id)
-                        ? 'bg-loakim-gold/10 border-loakim-gold/40'
-                        : 'bg-loakim-charcoal/30 border-loakim-border hover:border-loakim-gold/20'
+                        ? 'bg-loakim-lime/10 border-loakim-lime/40'
+                        : 'bg-white border-gray-200 hover:border-loakim-lime/20'
                     }`}
                   >
                     <div className="flex items-start gap-3">
                       <div
                         className={`w-5 h-5 rounded border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                           selectedServices.includes(service.id)
-                            ? 'bg-loakim-gold border-loakim-gold'
-                            : 'border-loakim-gray'
+                            ? 'bg-loakim-lime border-loakim-lime'
+                            : 'border-gray-400'
                         }`}
                       >
-                        {selectedServices.includes(service.id) && <Check size={12} className="text-loakim-black" />}
+                        {selectedServices.includes(service.id) && <Check size={12} className="text-gray-900" />}
                       </div>
                       <div>
-                        <span className="text-sm font-medium text-white block">{service.label}</span>
-                        <span className="text-xs text-loakim-gray">{service.category}</span>
+                        <span className="text-sm font-medium text-gray-900 block">{service.label}</span>
+                        <span className="text-xs text-gray-500">{service.category}</span>
                       </div>
                     </div>
                   </button>
@@ -239,12 +239,12 @@ export default function Consult() {
           {step === 2 && (
             <ScrollReveal>
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-white mb-2">Project Scope</h2>
-                <p className="text-loakim-gray text-sm">Help us understand your budget and timeline expectations.</p>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">Project Scope</h2>
+                <p className="text-gray-500 text-sm">Help us understand your budget and timeline expectations.</p>
               </div>
 
               <div className="mb-8">
-                <label className="text-sm font-medium text-loakim-lightgray block mb-3">Budget Range</label>
+                <label className="text-sm font-medium text-gray-700 block mb-3">Budget Range</label>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {budgetRanges.map((range) => (
                     <button
@@ -252,19 +252,19 @@ export default function Consult() {
                       onClick={() => setBudget(range)}
                       className={`p-4 rounded-xl border text-left transition-all duration-300 ${
                         budget === range
-                          ? 'bg-loakim-gold/10 border-loakim-gold/40'
-                          : 'bg-loakim-charcoal/30 border-loakim-border hover:border-loakim-gold/20'
+                          ? 'bg-loakim-lime/10 border-loakim-lime/40'
+                          : 'bg-white border-gray-200 hover:border-loakim-lime/20'
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <div
                           className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                            budget === range ? 'bg-loakim-gold border-loakim-gold' : 'border-loakim-gray'
+                            budget === range ? 'bg-loakim-lime border-loakim-lime' : 'border-gray-400'
                           }`}
                         >
-                          {budget === range && <div className="w-1.5 h-1.5 rounded-full bg-loakim-black" />}
+                          {budget === range && <div className="w-1.5 h-1.5 rounded-full bg-gray-900" />}
                         </div>
-                        <span className="text-sm text-white">{range}</span>
+                        <span className="text-sm text-gray-900">{range}</span>
                       </div>
                     </button>
                   ))}
@@ -272,7 +272,7 @@ export default function Consult() {
               </div>
 
               <div className="mb-10">
-                <label className="text-sm font-medium text-loakim-lightgray block mb-3">Expected Timeline</label>
+                <label className="text-sm font-medium text-gray-700 block mb-3">Expected Timeline</label>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {timelines.map((t) => (
                     <button
@@ -280,19 +280,19 @@ export default function Consult() {
                       onClick={() => setTimeline(t)}
                       className={`p-4 rounded-xl border text-left transition-all duration-300 ${
                         timeline === t
-                          ? 'bg-loakim-gold/10 border-loakim-gold/40'
-                          : 'bg-loakim-charcoal/30 border-loakim-border hover:border-loakim-gold/20'
+                          ? 'bg-loakim-lime/10 border-loakim-lime/40'
+                          : 'bg-white border-gray-200 hover:border-loakim-lime/20'
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <div
                           className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                            timeline === t ? 'bg-loakim-gold border-loakim-gold' : 'border-loakim-gray'
+                            timeline === t ? 'bg-loakim-lime border-loakim-lime' : 'border-gray-400'
                           }`}
                         >
-                          {timeline === t && <div className="w-1.5 h-1.5 rounded-full bg-loakim-black" />}
+                          {timeline === t && <div className="w-1.5 h-1.5 rounded-full bg-gray-900" />}
                         </div>
-                        <span className="text-sm text-white">{t}</span>
+                        <span className="text-sm text-gray-900">{t}</span>
                       </div>
                     </button>
                   ))}
@@ -305,62 +305,62 @@ export default function Consult() {
           {step === 3 && (
             <ScrollReveal>
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-white mb-2">Your Details</h2>
-                <p className="text-loakim-gray text-sm">How should we reach you to schedule your Brand Diagnostic?</p>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">Your Details</h2>
+                <p className="text-gray-500 text-sm">How should we reach you to schedule your Brand Diagnostic?</p>
               </div>
 
               <div className="space-y-5 mb-10">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-sm font-medium text-loakim-lightgray block mb-2">Full Name *</label>
+                    <label className="text-sm font-medium text-gray-700 block mb-2">Full Name *</label>
                     <input
                       type="text"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full px-4 py-3 bg-loakim-charcoal/50 border border-loakim-border rounded-xl text-white text-sm placeholder:text-loakim-gray focus:outline-none focus:border-loakim-gold/40 transition-colors"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-loakim-lime/40 transition-colors"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-loakim-lightgray block mb-2">Company Name</label>
+                    <label className="text-sm font-medium text-gray-700 block mb-2">Company Name</label>
                     <input
                       type="text"
                       value={formData.companyName}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      className="w-full px-4 py-3 bg-loakim-charcoal/50 border border-loakim-border rounded-xl text-white text-sm placeholder:text-loakim-gray focus:outline-none focus:border-loakim-gold/40 transition-colors"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-loakim-lime/40 transition-colors"
                       placeholder="Your company or brand"
                     />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-sm font-medium text-loakim-lightgray block mb-2">Email Address *</label>
+                    <label className="text-sm font-medium text-gray-700 block mb-2">Email Address *</label>
                     <input
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-loakim-charcoal/50 border border-loakim-border rounded-xl text-white text-sm placeholder:text-loakim-gray focus:outline-none focus:border-loakim-gold/40 transition-colors"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-loakim-lime/40 transition-colors"
                       placeholder="you@company.com"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-loakim-lightgray block mb-2">Phone Number *</label>
+                    <label className="text-sm font-medium text-gray-700 block mb-2">Phone Number *</label>
                     <input
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 bg-loakim-charcoal/50 border border-loakim-border rounded-xl text-white text-sm placeholder:text-loakim-gray focus:outline-none focus:border-loakim-gold/40 transition-colors"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-loakim-lime/40 transition-colors"
                       placeholder="+234 800 000 0000"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-loakim-lightgray block mb-2">Project Details</label>
+                  <label className="text-sm font-medium text-gray-700 block mb-2">Project Details</label>
                   <textarea
                     value={formData.projectDetails}
                     onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
                     rows={4}
-                    className="w-full px-4 py-3 bg-loakim-charcoal/50 border border-loakim-border rounded-xl text-white text-sm placeholder:text-loakim-gray focus:outline-none focus:border-loakim-gold/40 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-loakim-lime/40 transition-colors resize-none"
                     placeholder="Tell us about your project, goals, and any specific challenges..."
                   />
                 </div>
@@ -370,16 +370,16 @@ export default function Consult() {
 
           {submitError && (
             <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl mb-6">
-              <p className="text-red-400 text-sm">{submitError}</p>
+              <p className="text-red-600 text-sm">{submitError}</p>
             </div>
           )}
 
           {/* Navigation */}
-          <div className="flex items-center justify-between pt-6 border-t border-loakim-border">
+          <div className="flex items-center justify-between pt-6 border-t border-gray-200">
             {step > 1 ? (
               <button
                 onClick={() => setStep(step - 1)}
-                className="inline-flex items-center gap-2 px-5 py-3 text-loakim-lightgray hover:text-white transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-5 py-3 text-gray-600 hover:text-gray-900 transition-colors text-sm"
               >
                 <ArrowLeft size={16} />
                 Back
@@ -392,7 +392,7 @@ export default function Consult() {
               <button
                 onClick={() => setStep(step + 1)}
                 disabled={!canProceed()}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-gold text-loakim-black font-semibold rounded-lg hover:bg-loakim-goldlight transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
               >
                 Continue
                 <ArrowRight size={16} />
@@ -401,7 +401,7 @@ export default function Consult() {
               <button
                 onClick={handleSubmit}
                 disabled={!canProceed() || isSubmitting}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-gold text-loakim-black font-semibold rounded-lg hover:bg-loakim-goldlight transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-sm"
               >
                 <Send size={16} />
                 {isSubmitting ? 'Submitting...' : 'Submit Request'}

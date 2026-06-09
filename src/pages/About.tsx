@@ -54,12 +54,12 @@ export default function About() {
         keywords="about Loakim, Temitope Oladapo, brand consultancy Nigeria, Lagos marketing agency founder, retail pharmacy marketing expert"
       />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 relative">
+      {/* Hero — White */}
+      <section className="pt-32 pb-16 relative bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <p className="section-label mb-4">About</p>
-            <h1 className="heading-xl mb-6">Not Another Agency.</h1>
+            <p className="section-label-dark mb-4">About</p>
+            <h1 className="heading-xl mb-6 text-gray-900">Not Another Agency.</h1>
             <p className="body-lg max-w-3xl">
               Built on 10+ years across retail pharmacy, FMCG, fashion, events, and brand consulting. We bridge the gap between brand strategy and measurable sales outcomes in Nigerian markets.
             </p>
@@ -67,22 +67,22 @@ export default function About() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-16">
+      {/* Mission & Vision — White */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <ScrollReveal>
-              <div className="p-8 lg:p-10 bg-loakim-charcoal/30 border border-loakim-border rounded-2xl h-full">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-loakim-gold mb-4 block">Mission</span>
-                <p className="text-lg text-loakim-lightgray leading-relaxed">
+              <div className="p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl shadow-sm h-full">
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-loakim-lime mb-4 block">Mission</span>
+                <p className="text-lg text-gray-600 leading-relaxed">
                   To help Nigerian and pan-African brands grow revenue, build loyalty, and dominate their categories through integrated marketing strategy, bold creative communications, and data-driven execution — both online and in brick-and-mortar environments.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
-              <div className="p-8 lg:p-10 bg-loakim-charcoal/30 border border-loakim-border rounded-2xl h-full">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-loakim-gold mb-4 block">Vision</span>
-                <p className="text-lg text-loakim-lightgray leading-relaxed">
+              <div className="p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl shadow-sm h-full">
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-loakim-lime mb-4 block">Vision</span>
+                <p className="text-lg text-gray-600 leading-relaxed">
                   To become Nigeria's most trusted brand-growth consultancy, known for delivering measurable outcomes rather than just campaigns. The agency that brands call when they need to move the needle.
                 </p>
               </div>
@@ -91,12 +91,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* Differentiators */}
+      {/* Differentiators — Dark */}
       <section className="py-24 bg-loakim-dark">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <h2 className="heading-lg mb-4">What Sets Us Apart</h2>
-            <p className="body-md mb-16 max-w-2xl">
+            <h2 className="heading-lg mb-4 text-white">What Sets Us Apart</h2>
+            <p className="body-md-dark mb-16 max-w-2xl">
               The difference between generic agencies and a consultancy built from inside the industries it serves.
             </p>
           </ScrollReveal>
@@ -104,12 +104,12 @@ export default function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {differentiators.map((item, index) => (
               <ScrollReveal key={item.title} delay={index * 0.1}>
-                <div className="p-6 bg-loakim-black border border-loakim-border rounded-xl hover:border-loakim-gold/20 transition-all duration-300 h-full">
-                  <div className="w-10 h-10 bg-loakim-gold/10 rounded-lg flex items-center justify-center mb-4">
-                    <item.icon size={20} className="text-loakim-gold" />
+                <div className="p-6 bg-loakim-black border border-loakim-border rounded-xl hover:border-loakim-lime/20 transition-all duration-300 h-full">
+                  <div className="w-10 h-10 bg-loakim-lime/10 rounded-lg flex items-center justify-center mb-4">
+                    <item.icon size={20} className="text-loakim-lime" />
                   </div>
                   <h3 className="text-white font-semibold text-base mb-3">{item.title}</h3>
-                  <p className="text-loakim-gray text-sm leading-relaxed">{item.description}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -117,11 +117,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* Target Sectors */}
-      <section className="py-24">
+      {/* Target Sectors — White */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <h2 className="heading-lg mb-4">Priority Sectors</h2>
+            <h2 className="heading-lg mb-4 text-gray-900">Priority Sectors</h2>
             <p className="body-md mb-16 max-w-2xl">
               Our competitive advantage lies in deep sector knowledge. We lead with pharmacy, FMCG, and retail credentials to attract clients where generic agencies struggle to add real value.
             </p>
@@ -130,9 +130,9 @@ export default function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {targetSectors.map((sector, index) => (
               <ScrollReveal key={sector.name} delay={index * 0.1}>
-                <div className="p-6 bg-loakim-charcoal/30 border border-loakim-border rounded-xl hover:border-loakim-gold/20 transition-all duration-300">
-                  <h3 className="text-white font-semibold text-base mb-2">{sector.name}</h3>
-                  <p className="text-loakim-gray text-sm">{sector.description}</p>
+                <div className="p-6 bg-white border border-gray-200 rounded-xl hover:border-loakim-lime/20 shadow-sm hover:shadow-md transition-all duration-300">
+                  <h3 className="text-gray-900 font-semibold text-base mb-2">{sector.name}</h3>
+                  <p className="text-gray-500 text-sm">{sector.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -140,12 +140,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team / Structure */}
+      {/* Team / Structure — Dark */}
       <section className="py-24 bg-loakim-dark">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <h2 className="heading-lg mb-4">Lean Consultancy Model</h2>
-            <p className="body-md mb-16 max-w-2xl">
+            <h2 className="heading-lg mb-4 text-white">Lean Consultancy Model</h2>
+            <p className="body-md-dark mb-16 max-w-2xl">
               In Year 1, we operate as a founder-led consultancy with a tight network of specialist freelancers. This keeps overheads low while maintaining premium quality.
             </p>
           </ScrollReveal>
@@ -159,11 +159,11 @@ export default function About() {
             ].map((member, index) => (
               <ScrollReveal key={member.role} delay={index * 0.1}>
                 <div className="p-6 bg-loakim-black border border-loakim-border rounded-xl text-center">
-                  <div className="w-16 h-16 bg-loakim-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users size={24} className="text-loakim-gold" />
+                  <div className="w-16 h-16 bg-loakim-lime/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users size={24} className="text-loakim-lime" />
                   </div>
                   <h3 className="text-white font-semibold text-sm mb-2">{member.role}</h3>
-                  <p className="text-loakim-gray text-xs">{member.desc}</p>
+                  <p className="text-gray-500 text-xs">{member.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -171,17 +171,17 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24">
+      {/* CTA — White */}
+      <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="heading-md mb-6">Ready to Work With Us?</h2>
+            <h2 className="heading-md mb-6 text-gray-900">Ready to Work With Us?</h2>
             <p className="body-md mb-8 max-w-xl mx-auto">
               Start with a free 45-minute Brand Diagnostic. A strategic assessment that maps your growth trajectory and converts into a paid engagement.
             </p>
             <Link
               to="/consult"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-gold text-loakim-black font-semibold rounded-lg hover:bg-loakim-goldlight transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors"
             >
               Begin Consultation
               <ArrowRight size={18} />

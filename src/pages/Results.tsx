@@ -42,12 +42,12 @@ export default function Results() {
         keywords="marketing results Nigeria, brand growth case study, retail marketing ROI, FMCG conversion uplift, e-commerce ROAS, social media growth"
       />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 relative">
+      {/* Hero — White */}
+      <section className="pt-32 pb-16 relative bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <p className="section-label mb-4">IF</p>
-            <h1 className="heading-xl mb-6">Intelligence Feed</h1>
+            <p className="section-label-dark mb-4">IF</p>
+            <h1 className="heading-xl mb-6 text-gray-900">Intelligence Feed</h1>
             <p className="body-lg max-w-3xl">
               Measured Impact. Evidence-based results from our engagements. Every figure is verified, every outcome is measurable.
             </p>
@@ -55,31 +55,31 @@ export default function Results() {
         </div>
       </section>
 
-      {/* Case Studies Grid */}
-      <section className="py-16 pb-24">
+      {/* Case Studies Grid — White */}
+      <section className="py-16 pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {caseStudies.map((study, index) => (
               <ScrollReveal key={study.client} delay={index * 0.15}>
-                <div className="group p-8 lg:p-10 bg-loakim-charcoal/30 border border-loakim-border rounded-2xl hover:border-loakim-gold/20 transition-all duration-300 h-full">
+                <div className="group p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl hover:border-loakim-lime/20 shadow-sm hover:shadow-md transition-all duration-300 h-full">
                   <div className="flex items-start justify-between mb-8">
                     <div>
-                      <span className="text-5xl lg:text-6xl font-bold text-gradient-gold block mb-2">
+                      <span className="text-5xl lg:text-6xl font-bold text-gradient-lime block mb-2">
                         {study.metric}
                       </span>
-                      <span className="text-white font-medium text-sm">{study.metricLabel}</span>
+                      <span className="text-gray-900 font-medium text-sm">{study.metricLabel}</span>
                     </div>
-                    <div className="w-12 h-12 bg-loakim-gold/10 rounded-xl flex items-center justify-center">
-                      <study.icon size={24} className="text-loakim-gold" />
+                    <div className="w-12 h-12 bg-loakim-lime/10 rounded-xl flex items-center justify-center">
+                      <study.icon size={24} className="text-loakim-lime" />
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <h3 className="text-xl font-semibold text-white mb-1">{study.client}</h3>
-                    <span className="text-loakim-gold text-xs font-medium uppercase tracking-wider">{study.sector}</span>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-1">{study.client}</h3>
+                    <span className="text-loakim-lime text-xs font-medium uppercase tracking-wider">{study.sector}</span>
                   </div>
 
-                  <p className="text-loakim-gray text-sm leading-relaxed mb-6">
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">
                     {study.description}
                   </p>
 
@@ -87,7 +87,7 @@ export default function Results() {
                     {study.services.map((service) => (
                       <span
                         key={service}
-                        className="px-3 py-1 text-xs font-medium text-loakim-lightgray bg-loakim-dark border border-loakim-border rounded-full"
+                        className="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 border border-gray-200 rounded-full"
                       >
                         {service}
                       </span>
@@ -96,7 +96,7 @@ export default function Results() {
 
                   <Link
                     to="/consult"
-                    className="inline-flex items-center gap-2 text-loakim-gold text-sm font-medium hover:text-loakim-goldlight transition-colors group/link"
+                    className="inline-flex items-center gap-2 text-loakim-lime text-sm font-medium hover:text-loakim-limehover transition-colors group/link"
                   >
                     Discuss Similar Results
                     <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
@@ -108,17 +108,17 @@ export default function Results() {
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* CTA Banner — Dark */}
       <section className="py-20 bg-loakim-dark">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="heading-md mb-6">Your Results Could Be Here Next</h2>
-            <p className="body-md mb-8 max-w-xl mx-auto">
+            <h2 className="heading-md mb-6 text-white">Your Results Could Be Here Next</h2>
+            <p className="body-md-dark mb-8 max-w-xl mx-auto">
               Every engagement starts with a diagnostic. Let's identify your growth trajectory and build a strategy that delivers measurable commercial impact.
             </p>
             <Link
               to="/consult"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-gold text-loakim-black font-semibold rounded-lg hover:bg-loakim-goldlight transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors"
             >
               Start Your Diagnostic
               <ArrowRight size={18} />

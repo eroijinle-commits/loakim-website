@@ -8,15 +8,16 @@ export default {
     extend: {
       colors: {
         loakim: {
-          black: '#0a0a0a',
+          black: '#0A0A0A',
           dark: '#111111',
-          charcoal: '#1a1a1a',
-          gray: '#737373',
-          lightgray: '#a3a3a3',
+          charcoal: '#1A1A1A',
+          gray: '#6B7280',
+          lightgray: '#A3A3A3',
           white: '#ffffff',
-          gold: '#c9a96e',
-          goldlight: '#d4b87a',
+          lime: '#D4FF00',
+          limehover: '#b8e600',
           border: '#262626',
+          borderlight: '#E5E7EB',
         }
       },
       fontFamily: {

@@ -29,27 +29,27 @@ export default function ResetPassword() {
         <div className="w-full max-w-md">
           <div className="text-center mb-10">
             <Link to="/" className="inline-flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-loakim-gold/10 rounded-lg flex items-center justify-center border border-loakim-gold/20">
-                <span className="text-loakim-gold font-bold text-xl">L</span>
+              <div className="w-10 h-10 bg-loakim-lime/10 rounded-lg flex items-center justify-center border border-loakim-lime/20">
+                <span className="text-loakim-lime font-bold text-xl">L</span>
               </div>
               <div>
                 <span className="text-white font-semibold text-sm tracking-wide">LOAKIM</span>
-                <span className="block text-[10px] text-loakim-gray tracking-[0.15em] uppercase">Integrated Services</span>
+                <span className="block text-[10px] text-gray-500 tracking-[0.15em] uppercase">Integrated Services</span>
               </div>
             </Link>
 
             {isSubmitted ? (
               <>
-                <div className="w-16 h-16 bg-loakim-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle2 size={32} className="text-loakim-gold" />
+                <div className="w-16 h-16 bg-loakim-lime/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 size={32} className="text-loakim-lime" />
                 </div>
                 <h1 className="text-2xl font-bold text-white mb-2">Password Updated</h1>
-                <p className="text-loakim-gray text-sm">Your password has been successfully reset. You can now sign in with your new password.</p>
+                <p className="text-gray-500 text-sm">Your password has been successfully reset. You can now sign in with your new password.</p>
               </>
             ) : (
               <>
                 <h1 className="text-2xl font-bold text-white mb-2">Set New Password</h1>
-                <p className="text-loakim-gray text-sm">Create a strong password for your account.</p>
+                <p className="text-gray-500 text-sm">Create a strong password for your account.</p>
               </>
             )}
           </div>
@@ -57,14 +57,14 @@ export default function ResetPassword() {
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="text-sm font-medium text-loakim-lightgray block mb-2">New Password</label>
+                <label className="text-sm font-medium text-gray-400 block mb-2">New Password</label>
                 <div className="relative">
-                  <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-loakim-gray" />
+                  <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-11 pr-12 py-3 bg-loakim-charcoal/50 border border-loakim-border rounded-xl text-white text-sm placeholder:text-loakim-gray focus:outline-none focus:border-loakim-gold/40 transition-colors"
+                    className="w-full pl-11 pr-12 py-3 bg-loakim-charcoal/50 border border-loakim-border rounded-xl text-white text-sm placeholder:text-gray-500 focus:outline-none focus:border-loakim-lime/40 transition-colors"
                     placeholder="Create a strong password"
                     required
                     minLength={8}
@@ -72,7 +72,7 @@ export default function ResetPassword() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-loakim-gray hover:text-white transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
                   >
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -80,14 +80,14 @@ export default function ResetPassword() {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-loakim-lightgray block mb-2">Confirm Password</label>
+                <label className="text-sm font-medium text-gray-400 block mb-2">Confirm Password</label>
                 <div className="relative">
-                  <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-loakim-gray" />
+                  <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className={`w-full pl-11 pr-12 py-3 bg-loakim-charcoal/50 border rounded-xl text-white text-sm placeholder:text-loakim-gray focus:outline-none focus:border-loakim-gold/40 transition-colors ${
+                    className={`w-full pl-11 pr-12 py-3 bg-loakim-charcoal/50 border rounded-xl text-white text-sm placeholder:text-gray-500 focus:outline-none focus:border-loakim-lime/40 transition-colors ${
                       confirmPassword && password !== confirmPassword ? 'border-red-500/50' : 'border-loakim-border'
                     }`}
                     placeholder="Confirm your password"
@@ -96,7 +96,7 @@ export default function ResetPassword() {
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-loakim-gray hover:text-white transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
                   >
                     {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -109,7 +109,7 @@ export default function ResetPassword() {
               <button
                 type="submit"
                 disabled={isLoading || !!(confirmPassword && password !== confirmPassword)}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-loakim-gold text-loakim-black font-semibold rounded-lg hover:bg-loakim-goldlight transition-colors disabled:opacity-60 text-sm"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors disabled:opacity-60 text-sm"
               >
                 {isLoading ? 'Updating...' : 'Update Password'}
                 {!isLoading && <ArrowRight size={16} />}
@@ -119,7 +119,7 @@ export default function ResetPassword() {
             <div className="text-center">
               <Link
                 to="/login"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-loakim-gold text-loakim-black font-semibold rounded-lg hover:bg-loakim-goldlight transition-colors text-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-loakim-lime text-gray-900 font-semibold rounded-lg hover:bg-loakim-limehover transition-colors text-sm"
               >
                 Sign In
                 <ArrowRight size={16} />
